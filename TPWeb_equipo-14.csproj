@@ -105,6 +105,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Repo GitHub\tp-winform-equipo-14\tp-winform-equipo-14\Dominio\Dominio.csproj">
+      <Project>{b88148fe-2cdc-4c9f-85cf-70a1c0dc4b79}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Repo GitHub\tp-winform-equipo-14\tp-winform-equipo-14\Server\Server.csproj">
+      <Project>{8e232a39-b099-44db-b8c0-58ec808cb319}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
