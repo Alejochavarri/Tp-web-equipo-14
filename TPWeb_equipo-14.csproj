@@ -106,11 +106,11 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Users\teobe\OneDrive\Escritorio\PROGRAMACION\.Progra3\Tp-web-equipo-14-main\Dominio\Dominio.csproj">
+    <ProjectReference Include="Dominio\Dominio.csproj">
       <Project>{b88148fe-2cdc-4c9f-85cf-70a1c0dc4b79}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Users\teobe\OneDrive\Escritorio\PROGRAMACION\.Progra3\Tp-web-equipo-14-main\Server\Server.csproj">
+    <ProjectReference Include="Server\Server.csproj">
       <Project>{8e232a39-b099-44db-b8c0-58ec808cb319}</Project>
       <Name>Server</Name>
     </ProjectReference>
