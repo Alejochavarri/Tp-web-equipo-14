@@ -16,6 +16,8 @@ namespace TPWeb_equipo_14
         {
             ArticuloServer articuloServer = new ArticuloServer();
             listaArticulos = articuloServer.listar();
+
+            Articulos variable = new Articulos();
         }
 
         protected void btnAceptar(object sender, EventArgs e)

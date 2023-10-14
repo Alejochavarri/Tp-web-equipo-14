@@ -95,6 +95,10 @@
     <Compile Include="Detalle.aspx.designer.cs">
       <DependentUpon>Detalle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dom\Articulos.cs" />
+    <Compile Include="Dom\Categoria.cs" />
+    <Compile Include="Dom\Imagen.cs" />
+    <Compile Include="Dom\Marca.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -106,6 +110,11 @@
     <Compile Include="MainMaster.Master.designer.cs">
       <DependentUpon>MainMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Serv\AccesoDatos.cs" />
+    <Compile Include="Serv\ArticuloServer.cs" />
+    <Compile Include="Serv\CategoriaServer.cs" />
+    <Compile Include="Serv\ImagenServer.cs" />
+    <Compile Include="Serv\MarcaServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -120,16 +129,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Dominio\Dominio.csproj">
-      <Project>{b88148fe-2cdc-4c9f-85cf-70a1c0dc4b79}</Project>
-      <Name>Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="Server\Server.csproj">
-      <Project>{8e232a39-b099-44db-b8c0-58ec808cb319}</Project>
-      <Name>Server</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
