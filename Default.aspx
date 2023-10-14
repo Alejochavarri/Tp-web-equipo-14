@@ -12,6 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
     <div id="content-container">
         <h1>Lista de productos</h1>
 
@@ -44,6 +45,21 @@
                             </asp:LinkButton>
                         </div>
                     </div>
+=======
+    <h1>Titulo</h1>
+    <asp:Button ID="Button1" runat="server" OnClick="btnAceptar" Text="Button" />
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <%  
+            foreach (Dominio.Articulos item in listaArticulos)
+            {
+%>
+        <div class="col">
+            <div class="card">
+                 <img src="<%:item.Imagen[0]%>" class="d-block w-100" alt="..." onerror="this.onerror=null;this.src='https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg';">             
+                <div class="card-body">
+                    <h5 class="card-title"><%: item.Nombre %></h5>
+                    <p class="card-text"><%: item.Descripcion %></p>
+>>>>>>> 8e2fa1fa97705899b65b437bb139d099040bb9a4
                 </div>
 
             <% } %>
