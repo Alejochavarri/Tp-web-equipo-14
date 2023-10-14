@@ -17,7 +17,7 @@
         <asp:Button ID="Button1" runat="server" OnClick="btnAceptar" Text="BotonPrueba" />
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <%  
-                foreach (Dominio.Articulos item in listaArticulos)
+                foreach (TPWeb_equipo_14.Articulos item in listaArticulos)
                 {
             %>
             <div class="col">

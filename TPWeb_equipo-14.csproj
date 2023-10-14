@@ -95,10 +95,10 @@
     <Compile Include="Detalle.aspx.designer.cs">
       <DependentUpon>Detalle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dom\Articulos.cs" />
-    <Compile Include="Dom\Categoria.cs" />
-    <Compile Include="Dom\Imagen.cs" />
-    <Compile Include="Dom\Marca.cs" />
+    <Compile Include="Dominio\Articulos.cs" />
+    <Compile Include="Dominio\Categoria.cs" />
+    <Compile Include="Dominio\Imagen.cs" />
+    <Compile Include="Dominio\Marca.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -110,11 +110,11 @@
     <Compile Include="MainMaster.Master.designer.cs">
       <DependentUpon>MainMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Serv\AccesoDatos.cs" />
-    <Compile Include="Serv\ArticuloServer.cs" />
-    <Compile Include="Serv\CategoriaServer.cs" />
-    <Compile Include="Serv\ImagenServer.cs" />
-    <Compile Include="Serv\MarcaServer.cs" />
+    <Compile Include="Server\AccesoDatos.cs" />
+    <Compile Include="Server\ArticuloServer.cs" />
+    <Compile Include="Server\CategoriaServer.cs" />
+    <Compile Include="Server\ImagenServer.cs" />
+    <Compile Include="Server\MarcaServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
