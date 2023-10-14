@@ -17,5 +17,11 @@ namespace TPWeb_equipo_14
             ArticuloServer articuloServer = new ArticuloServer();
             listaArticulos = articuloServer.listar();
         }
+
+        protected void btnAceptar(object sender, EventArgs e)
+        {
+            int idElemento = 1;
+            Response.Redirect("Detalle.aspx?id=" + idElemento,false);
+        }
     }
 }
