@@ -23,5 +23,10 @@ namespace TPWeb_equipo_14
             int idElemento = 1;
             Response.Redirect("Detalle.aspx?id=" + idElemento,false);
         }
+        protected void VerDetalle_Click(object sender, EventArgs e)
+        {
+            int idElemento = 0;
+            Response.Redirect("Detalle.aspx?id=" + idElemento, false);
+        }
     }
 }
