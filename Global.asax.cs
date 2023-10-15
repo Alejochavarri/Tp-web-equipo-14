@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Optimization;
+using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace TPWeb_equipo_14
+namespace Tp_web_equipo_14
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
-        protected void Application_Start(object sender, EventArgs e)
+        void Application_Start(object sender, EventArgs e)
         {
+            // Código que se ejecuta al iniciar la aplicación
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
