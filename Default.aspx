@@ -6,7 +6,8 @@
             margin-left: 15%;
             margin-right: 15%;
         }
-        #content-container2{
+
+        #content-container2 {
             margin: 10%;
         }
     </style>
@@ -15,39 +16,24 @@
     <div id="content-container">
         <h1>Lista de productos</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <%  
-                foreach (TPWeb_equipo_14.Articulos item in listaArticulos)
-                {
-            %>
-            <div class="col">
-                <div class="card">
-                    <img src="<%:item.Imagen[0]%>" class="d-block w-100" alt="..." onerror="this.onerror=null;this.src='https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg';">             
-                    <div class="card-body">
-                        <h5 class="card-title"><%: item.Nombre %></h5>
-                        <p class="card-text"><%: item.Descripcion %></p>
-                        <p class="card-text">ID: <%: item.ID %></p>
+            <asp:Repeater ID="rptArticulos" runat="server">
+                <ItemTemplate>
+                    <div class="col">
+                        <div class="card mw-100">
+                            <div class="card-body">
+                                <%# cargarImagen(((TPWeb_equipo_14.Articulos)Container.DataItem)?.Imagen?.LastOrDefault()?.ToString()) %>
+                                <asp:Image CssClass="card-img-top" ID="imgArticulo" runat="server" onerror="this.src'https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg'" />
+                                <h4 class="card-title"><%# ((TPWeb_equipo_14.Articulos)Container.DataItem).Nombre %></h4>
+                                <p class="card-text"><%# ((TPWeb_equipo_14.Articulos)Container.DataItem).Descripcion %></p>
+                                <p class="card-text fw-semibold text-success display-6">$<%# Math.Round(((TPWeb_equipo_14.Articulos)Container.DataItem).Precio, 2) %></p>
+                                <a href="Detalle.aspx?id=<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID %>" class="btn btn-primary w-100 mb-1">Ver más</a>
+                                <asp:Button ID="btnAgregar" CssClass="btn btn-success w-100 mt-1" runat="server" Text="Agregar Carrito" OnClick="btnAgregar_Click" CommandArgument='<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID.ToString() %>' />
+                            </div>
+                        </div>
                     </div>
-                    <div id="content-container2">
-                        <asp:LinkButton ID="VerDetalle" runat="server" CssClass="btn btn-secondary" OnClick="VerDetalle_Click">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-                              <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                              <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-                            </svg>
-                            Ver
-                        </asp:linkbutton>
-                        <%--<asp:LinkButton ID="Agregar" runat="server" CssClass="btn btn-secondary" OnClick="btnAgregar_Click" CommandArgument='<% item.ID %>' CommandName="ArticuloID">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                            Agregar
-                        </asp:LinkButton>--%>
-                        <asp:Button ID="btnAgregar" CssClass="btn btn-success" runat="server" Text="Agregar Carrito" OnClick="btnAgregar_Click" CommandArgument='<%# Eval("item.ID") %>' CommandName="IDArticulo" /> <%--No puedo pasar como int el idarticulo--%>
-                    </div>
-                </div>
-            </div>
-    
-            <% } %>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
     </div>
+
 </asp:Content>

@@ -11,18 +11,26 @@ namespace TPWeb_equipo_14
 {
     public partial class Default : System.Web.UI.Page
     {
-        public List <Articulos> listaArticulos {  get; set; }
-        ArticuloServer articuloServerC = new ArticuloServer();
+        public List<Articulos> ListaArticulos { get; set; }
+        ArticuloServer articuloServer;
 
+        public Default()
+        {
+            articuloServer = new ArticuloServer();
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloServer articuloServer = new ArticuloServer();
+            if (!IsPostBack)
+            {
+                ListaArticulos = articuloServer.listar();
+                Session.Add("ListaArticulos", ListaArticulos);
 
-            listaArticulos = articuloServer.listar();
-            
+                rptArticulos.DataSource = ListaArticulos;
+                rptArticulos.DataBind();
+            }
 
-
-            Articulos variable = new Articulos();
+            ListaArticulos = (List<Articulos>)Session["ListaArticulos"];
         }
 
         protected void btnAceptar(object sender, EventArgs e)
@@ -43,7 +51,7 @@ namespace TPWeb_equipo_14
             int idArticulo = int.Parse(btnAgregar.CommandArgument);
 
             
-            Articulos articulo = articuloServerC.buscarPorId(idArticulo);
+            Articulos articulo = articuloServer.buscarPorId(idArticulo);
             carrito.AgregarArticulo(articulo);
             Session["Carrito"] = carrito;
 
@@ -55,6 +63,17 @@ namespace TPWeb_equipo_14
         {
             var item = (Articulos)dataItem;
             return item.ID.ToString();
+        }
+
+        public string cargarImagen(string url)
+        {
+            ImagenServer imagenNegocio = new ImagenServer();
+            if (imagenNegocio.VerificarUrlImagen(url))
+            {
+                return string.Format("<img src='{0}' class='card-img-top' />", url);
+            }
+
+            return "<img src='https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg' class='card-img-top' />";
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using Tp_web_equipo_14.Server;
 
 namespace TPWeb_equipo_14
 {
@@ -30,7 +31,18 @@ namespace TPWeb_equipo_14
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Carrito.aspx", false);
+            CarritoServer carrito = Session["Carrito"] as CarritoServer;
+            ArticuloServer articuloNegocio = new ArticuloServer();
+
+            int idArticulo = int.Parse(Request.QueryString["id"]);
+            Articulos articulo = articuloNegocio.buscarPorId(idArticulo);
+            carrito.AgregarArticulo(articulo);
+            Session["Carrito"] = carrito;
+
+
+
+            var masterPage = this.Master as Site1;
+            masterPage.ActualizarContenidoCarrito();
         }
     }
 }
