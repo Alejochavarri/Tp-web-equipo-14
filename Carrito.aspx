@@ -2,11 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<%--<style>
-    .pago table, .pago h1 {
-        color: white;
-    }
-</style>--%>
+
         <h1>Página de Pago</h1>
         <table class="table">
             <thead>
@@ -32,7 +28,7 @@
                 <tr>
                     <td class="display-6">Total</td>
                     <td></td>
-                    <%--<td colspan="2" class="display-6"><%: this.ObtenerTotalCarrito().ToString() %></td>--%> 
+                    <td colspan="2" class="display-6"><%: this.ObtenerTotalCarrito().ToString() %></td> 
                 </tr>
             </tbody>
         </table>
