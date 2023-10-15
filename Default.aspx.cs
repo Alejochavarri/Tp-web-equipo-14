@@ -14,6 +14,9 @@ namespace TPWeb_equipo_14
         public List<Articulos> ListaArticulos { get; set; }
         ArticuloServer articuloServer;
 
+        public List<Marca> listaMarcas { get; set; }
+        public List<Categoria> listaCategorias { get; set; }
+
         public Default()
         {
             articuloServer = new ArticuloServer();
@@ -21,6 +24,9 @@ namespace TPWeb_equipo_14
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            MarcaServer marcaServer = new MarcaServer();
+            CategoriaServer categoriaServer = new CategoriaServer();
+
             if (!IsPostBack)
             {
                 ListaArticulos = articuloServer.listar();
@@ -28,6 +34,20 @@ namespace TPWeb_equipo_14
 
                 rptArticulos.DataSource = ListaArticulos;
                 rptArticulos.DataBind();
+
+
+
+                listaMarcas = marcaServer.listar();
+                listaCategorias = categoriaServer.listar();
+
+                foreach (var marca in listaMarcas)
+                {
+                    ddlMarca.Items.Add(marca.ToString());
+                }
+                foreach (var categoria in listaCategorias)
+                {
+                    ddlCategoria.Items.Add(categoria.ToString());
+                }
             }
 
             ListaArticulos = (List<Articulos>)Session["ListaArticulos"];
