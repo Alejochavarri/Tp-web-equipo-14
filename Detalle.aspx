@@ -2,41 +2,47 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row g-3">
-
-        <div class="col" style="width: 50%">
-            <div id="carouselExample" class="carousel carousel-dark slide">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Label ID="lblError" CssClass="h1 d-flex justify-content-center text-white" runat="server" Text=""></asp:Label>
+    <div class="row row-cols-2  mt-5">
+        <%if (hayArticulo){%>
+                <div class="col w-75 mx-auto">
+            <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="<%:item.Imagen[0]%>" class="d-block w-100" alt="..." onerror="this.onerror=null;this.src='https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg';">                     
-                    </div>
-                    <!--foreach-->
-                    <div class="carousel-item">
-                        <img src="<%:listaArticulos[3].Imagen[0]%>" class="d-block w-100" alt="...">
-                    </div>
+                    <% for (int i = 0; i < articulo.Imagen.Count; i++){
+                            if(i == 0){%>
+                                <div class="carousel-item active">
+                                   <img src="<%:cargarImagen(articulo.Imagen[i].ToString())%>" class="img-thumbnail mx-auto d-block w-75 mb-3" alt="prueba" onerror="this.src'https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg'"/>
+                                 </div>
+                            <%}else{%>
+                                <div class="carousel-item">
+                                   <img src="<%:cargarImagen(articulo.Imagen[i].ToString())%>" class="img-thumbnail mx-auto d-block w-75 mb-3" alt="prueba" onerror="this.src'https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg'"/>
+                                 </div>
+                              <%}%>
+                    <% }%>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                <%if (articulo.Imagen.Count > 1){ %>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                       </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                  <%}%>
+             </div>
         </div>
-        <div class="col align-self-center" style="padding: 20px">
-            <h3 style="padding: 10px;">Id : <%:item.ID %></h3>
-            <h3 style="padding: 10px;">Codigo : <%:item.Codigo %></h3>
-            <h3 style="padding: 10px;">Nombre : <%:item.Nombre %></h3>
-            <h3 style="padding: 10px;">Descripcion : <%:item.Descripcion %></h3>
-            <h3 style="padding: 10px;">Marca : <%:item.Marca %></h3>
-            <h3 style="padding: 10px;">Categoria : <%:item.Categoria %></h3>
-            <h3 style="padding: 10px;">Precio : <%:item.Precio %></h3>
-            <asp:Button ID="btnVolver" runat="server" class="btn btn-outline-primary" Text="Volver" OnClick="btnVolver_Click" />
-            <asp:Button ID="btnAgregar" runat="server" class="btn btn-outline-primary" Text="Agregar" OnClick="btnAgregar_Click" />
-        </div>
+        <div class="col d-flex flex-column  align-items-center mx-auto">
+            <asp:Label ID="tituloArticulo" CssClass="h2" runat="server" Text=""></asp:Label>
+            <asp:Label ID="descArticulo" CssClass="h5" runat="server" Text=""></asp:Label>
+            <asp:Label ID="marcaArticulo" CssClass="h5" runat="server" Text=""></asp:Label>
+            <asp:Label ID="categoriaArticulo" CssClass="h5" runat="server" Text=""></asp:Label>
+            <asp:Label ID="precioArticulo" CssClass="h5 fw-semibold text-success" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btnAgregar" CssClass="btn btn-success w-100 mt-1" runat="server" Text="Agregar Carrito" OnClick="btnAgregar_Click" />
+        </div>    
 
+
+         <%}%>
     </div>
 </asp:Content>
