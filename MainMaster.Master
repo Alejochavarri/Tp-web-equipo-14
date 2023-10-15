@@ -40,7 +40,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
                     <i class="fa-solid fa-cart-shopping fa-xl" style="color: #ffffff;"></i>
                     <asp:Label ID="lblCantidad" CssClass="mb-0 ms-1" runat="server"></asp:Label>
                 </button>

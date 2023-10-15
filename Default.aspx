@@ -6,10 +6,6 @@
             margin-left: 15%;
             margin-right: 15%;
         }
-
-        #content-container2 {
-            margin: 10%;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,12 +13,13 @@
         <h1>Lista de productos</h1>
         <br />
 
-        <div>
-            <asp:Label ID="filtros" runat="server" Text="Filtros" CssClass="btn btn-secondary"></asp:Label> <br /> <br />
-            <asp:Label ID="txtDdlMarca" runat="server" Text="Marca" CssClass="btn btn-secondary"></asp:Label>
+        <div class="filtros">
+            <asp:Label ID="filtros" runat="server" Text="Filtros" CssClass="btn btn-outline-secondary"></asp:Label> <br /> <br />
+            <asp:Label ID="txtDdlMarca" runat="server" Text="Marca" CssClass="btn btn-outline-secondary"></asp:Label>
             <asp:DropDownList ID="ddlMarca" runat="server" CssClass="btn dropdown-toggle"></asp:DropDownList>
-            <asp:Label ID="txtDdlCategoria" runat="server" Text="Categoria" CssClass="btn btn-secondary"></asp:Label>
+            <asp:Label ID="txtDdlCategoria" runat="server" Text="Categoria" CssClass="btn btn-outline-secondary"></asp:Label>
             <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="btn dropdown-toggle"></asp:DropDownList>
+            <asp:Button ID="filtrosBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary"/>
         </div>
         <br />
 
@@ -37,8 +34,9 @@
                                 <h4 class="card-title"><%# ((TPWeb_equipo_14.Articulos)Container.DataItem).Nombre %></h4>
                                 <p class="card-text"><%# ((TPWeb_equipo_14.Articulos)Container.DataItem).Descripcion %></p>
                                 <p class="card-text fw-semibold text-success display-6">$<%# Math.Round(((TPWeb_equipo_14.Articulos)Container.DataItem).Precio, 2) %></p>
-                                <a href="Detalle.aspx?id=<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID %>" class="btn btn-primary w-100 mb-1">Ver más</a>
+                                <a href="Detalle.aspx?id=<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID %>" class="btn btn-outline-primary w-100 mb-1">Ver más</a>
                                 <asp:Button ID="btnAgregar" CssClass="btn btn-success w-100 mt-1" runat="server" Text="Agregar Carrito" OnClick="btnAgregar_Click" CommandArgument='<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID.ToString() %>' />
+
                             </div>
                         </div>
                     </div>

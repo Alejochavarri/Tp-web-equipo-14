@@ -54,7 +54,7 @@
                     <li class="list-group-item">Categoria : <%:item.Categoria %></li>                                 
                 </ul>
             <div class="card-body" style="display:flex;justify-content: center;margin:30px">            
-                <asp:Button ID="btnAgregar" runat="server" class="btn btn-outline-danger" Text="Agregar al carrito" OnClick="btnAgregar_Click" />
+                <asp:Button ID="btnAgregar" runat="server" class="btn btn-outline-primary" Text="Agregar al carrito" OnClick="btnAgregar_Click" />
             </div>
             </div>
 
@@ -62,7 +62,7 @@
     </div>
     <footer style="margin-top:20px;margin:20px">
         <div>
-            <div class="card" >
+            <!--div class="card" >
                 <div class="card-body">
                     <h5 class="card-title">Previsualizacion del carrito</h5>
                     <div style="display:flex;justify-content: space-between;margin:10px">
@@ -73,7 +73,7 @@
                         <a href="#" class="btn btn-danger"  ">Ver Mi Pedido</a>
                     </div>  
                 </div>
-            </div>
+            </!--div-->
         </div>
     </footer>
 </asp:Content>

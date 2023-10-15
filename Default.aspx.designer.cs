@@ -60,6 +60,15 @@ namespace TPWeb_equipo_14
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
 
         /// <summary>
+        /// Control filtrosBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button filtrosBuscar;
+
+        /// <summary>
         /// Control rptArticulos.
         /// </summary>
         /// <remarks>
