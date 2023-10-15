@@ -108,6 +108,56 @@ namespace TPWeb_equipo_14
             }
 
         }
+        public Articulos buscarPorId(int id)
+        {
+            Articulos articulo = new Articulos();
+            AccesoDatos db = new AccesoDatos();
+            string query = "SELECT A.Id as Id, A.Codigo as Codigo, A.Precio as Precio, A.Nombre as Nombre, A.Descripcion as Descripcion, A.IdMarca as IdMarca, M.Descripcion as Marca, A.IdCategoria as IdCategoria, C.Descripcion as Categoria FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A.Id = @Id";
+            try
+            {
+                db.setConsulta(query);
+                db.setearParametro("@Id", id);
+                db.ejecutarLectura();
+                if (db.Lector.Read())
+                {
+                    int idArticulo = (int)db.Lector["Id"];
+                    articulo.ID = idArticulo;
+                    if (!(db.Lector["Codigo"] is DBNull)) articulo.Codigo = (string)db.Lector["Codigo"];
+                    if (!(db.Lector["Nombre"] is DBNull)) articulo.Nombre = (string)db.Lector["Nombre"];
+                    if (!(db.Lector["Descripcion"] is DBNull)) articulo.Descripcion = (string)db.Lector["Descripcion"];
+                    if (!(db.Lector["Precio"] is DBNull)) articulo.Precio = (decimal)db.Lector["Precio"];
+
+                    ImagenServer imagenNegocio = new ImagenServer();
+                    articulo.Imagen = imagenNegocio.imagenesArticulo(idArticulo);
+
+
+                    if (!(db.Lector["IdMarca"] is DBNull))
+                    {
+                        articulo.Marca = new Marca();
+                        articulo.Marca.Descripcion = (string)db.Lector["Marca"];
+                        articulo.Marca.Id = (int)db.Lector["IdMarca"];
+
+                    }
+
+                    if (!(db.Lector["IdCategoria"] is DBNull))
+                    {
+                        articulo.Categoria = new Categoria();
+                        articulo.Categoria.Descripcion = (string)db.Lector["Categoria"];
+                        articulo.Categoria.Id = (int)db.Lector["IdCategoria"];
+                    }
+                }
+
+                return articulo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.cerrarConexion();
+            }
+        }
 
         public List<Articulos> listarPorMarca(int idMarca)
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +40,27 @@ namespace TPWeb_equipo_14
             }
         }
 
+        public bool VerificarUrlImagen(string url)
+        {
+            if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                try
+                {
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    request.Method = "HEAD";
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                    {
+                        return response.StatusCode == HttpStatusCode.OK;
+                    }
+                }
+                catch (WebException)
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
         public int modificar(int idImagen, string url)
         {
             AccesoDatos db = new AccesoDatos();
