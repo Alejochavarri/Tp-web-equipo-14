@@ -18,7 +18,7 @@ namespace TPWeb_equipo_14
             ArticuloServer articuloServer = new ArticuloServer();
             listaArticulos = articuloServer.listar();
             item = new Articulos();
-            int id = int.Parse ((Request.QueryString["id"]).ToString());
+            int id = int.Parse((Request.QueryString["id"]).ToString());
             item = listaArticulos[id];
             listaImagenes = item.Imagen;
         }
