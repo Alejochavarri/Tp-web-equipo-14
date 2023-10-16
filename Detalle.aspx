@@ -76,7 +76,7 @@
 
          </div>
     </div>
-            <div class="card" style="background-color:#e9ecef">
+            <div class="card" style="background-color:#e9ecef; margin-top:250px">
                 <div class="card-body">                                             
                     <div style="text-align:end; margin:10px">
                         <asp:Button ID="btnCarrito" runat="server" class="btn btn-outline-success" Text="Ver mi Pedido" OnClick="btnCarrito_Click" />
