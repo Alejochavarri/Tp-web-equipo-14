@@ -27,6 +27,7 @@
             <asp:Repeater ID="rptArticulos" runat="server">
                 <ItemTemplate>
                     <div class="col">
+                        <a style="text-decoration:none" href="Detalle.aspx?id=<%# ((TPWeb_equipo_14.Articulos)Container.DataItem).ID %>">                         
                         <div class="card mw-100">
                             <div class="card-body">
                                 <%# cargarImagen(((TPWeb_equipo_14.Articulos)Container.DataItem)?.Imagen?.LastOrDefault()?.ToString()) %>
@@ -39,6 +40,7 @@
 
                             </div>
                         </div>
+                             </a>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

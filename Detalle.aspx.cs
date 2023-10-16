@@ -20,7 +20,7 @@ namespace TPWeb_equipo_14
             listaArticulos = articuloServer.listar();
             item = new Articulos();
             int id = int.Parse((Request.QueryString["id"]).ToString());
-            item = listaArticulos[id];
+            item = listaArticulos[id-1];
             listaImagenes = item.Imagen;
         }
 
@@ -43,6 +43,10 @@ namespace TPWeb_equipo_14
 
             var masterPage = this.Master as Site1;
             masterPage.ActualizarContenidoCarrito();
+        }
+        protected void btnCarrito_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Carrito.aspx", false);
         }
     }
 }
