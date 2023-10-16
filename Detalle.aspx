@@ -76,21 +76,12 @@
 
          </div>
     </div>
-    <footer style="margin-top:20px">
-        <div>
-            <div class="card" >
-                <div class="card-body">
-                    <h5 class="card-title">Previsualizacion del carrito</h5>
-                    <div style="display:flex;justify-content: space-between;margin:10px">
-                        <label class="card-text">0 Elementos</label>
-                        <label class="card-text" > $ 2000</label>                       
-                    </div>          
+            <div class="card" style="background-color:#e9ecef">
+                <div class="card-body">                                             
                     <div style="text-align:end; margin:10px">
                         <asp:Button ID="btnCarrito" runat="server" class="btn btn-outline-success" Text="Ver mi Pedido" OnClick="btnCarrito_Click" />
                     </div>  
                 </div>
             </div>
-        </div>
-    </footer>
         </div>
 </asp:Content>
