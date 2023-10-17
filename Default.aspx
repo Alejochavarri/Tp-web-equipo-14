@@ -11,16 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content-container">
         <h1>Lista de productos</h1>
-        <br />
-
-        <div class="filtros">
-            <asp:Label ID="filtros" runat="server" Text="Filtros" CssClass="btn btn-outline-secondary"></asp:Label> <br /> <br />
-            <asp:Label ID="txtDdlMarca" runat="server" Text="Marca" CssClass="btn btn-outline-secondary"></asp:Label>
-            <asp:DropDownList ID="ddlMarca" runat="server" CssClass="btn dropdown-toggle"></asp:DropDownList>
-            <asp:Label ID="txtDdlCategoria" runat="server" Text="Categoria" CssClass="btn btn-outline-secondary"></asp:Label>
-            <asp:DropDownList ID="ddlCategoria" runat="server" CssClass="btn dropdown-toggle"></asp:DropDownList>
-            <asp:Button ID="filtrosBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary"/>
-        </div>
+       
         <br />
 
         <div class="row row-cols-1 row-cols-md-3 g-4">

@@ -35,22 +35,12 @@ namespace TPWeb_equipo_14
                 rptArticulos.DataSource = ListaArticulos;
                 rptArticulos.DataBind();
 
-
-
-                listaMarcas = marcaServer.listar();
-                listaCategorias = categoriaServer.listar();
-
-                foreach (var marca in listaMarcas)
-                {
-                    ddlMarca.Items.Add(marca.ToString());
-                }
-                foreach (var categoria in listaCategorias)
-                {
-                    ddlCategoria.Items.Add(categoria.ToString());
-                }
+                
             }
+                ListaArticulos = (List<Articulos>)Session["ListaArticulos"];
+            
+            
 
-            ListaArticulos = (List<Articulos>)Session["ListaArticulos"];
         }
 
         protected void btnAceptar(object sender, EventArgs e)
@@ -95,5 +85,9 @@ namespace TPWeb_equipo_14
 
             return "<img src='https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg' class='card-img-top' />";
         }
+
+
+
+        
     }
 }
